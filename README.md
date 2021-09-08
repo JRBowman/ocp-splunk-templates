@@ -1,0 +1,1 @@
+# ocp-splunk-templates
