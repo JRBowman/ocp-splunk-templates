@@ -1,0 +1,11 @@
+apiVersion: enterprise.splunk.com/v1alpha2
+kind: SearchHeadCluster
+metadata:
+  name: shc
+  finalizers:
+    - enterprise.splunk.com/delete-pvc
+  namespace: <namespace>
+spec:
+  indexerClusterRef:
+    name: idxc
+  replicas: 1

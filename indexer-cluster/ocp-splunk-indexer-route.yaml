@@ -1,0 +1,22 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: idxc
+  namespace: bow-splunk
+  labels:
+    app.kubernetes.io/component: indexer
+    app.kubernetes.io/instance: splunk-idxc-indexer
+    app.kubernetes.io/managed-by: splunk-operator
+    app.kubernetes.io/name: indexer
+    app.kubernetes.io/part-of: splunk-idxc-indexer
+spec:
+  to:
+    kind: Service
+    name: splunk-idxc-indexer-service
+    weight: 100
+  port:
+    targetPort: splunkweb
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

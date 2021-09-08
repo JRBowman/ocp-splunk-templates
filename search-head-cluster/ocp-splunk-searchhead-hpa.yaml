@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: shc-hpa
+  namespace: <namespace>
+spec:
+  scaleTargetRef:
+    apiVersion: enterprise.splunk.com/v1alpha2
+    kind: SearchHeadCluster
+    name: shc
+  minReplicas: 3
+  maxReplicas: 9
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          averageUtilization: 50
+          type: Utilization

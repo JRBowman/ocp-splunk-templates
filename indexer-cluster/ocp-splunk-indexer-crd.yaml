@@ -1,0 +1,9 @@
+apiVersion: enterprise.splunk.com/v1alpha2
+kind: IndexerCluster
+metadata:
+  name: idxc
+  finalizers:
+    - enterprise.splunk.com/delete-pvc
+  namespace: <namespace>
+spec:
+  replicas: 1
